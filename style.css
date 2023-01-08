@@ -1,0 +1,395 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;/* IMP*/
+}
+
+/*how to use downloaded fonts ,for the travelly we used from google so way was different  */
+@font-face {
+    font-family: 'Ruhl';
+    src: url(./fonts/FrankRuhlLibre-Regular.ttf);
+}
+@font-face {
+    font-family: 'Ruhl Medium';
+    src: url(./fonts/FrankRuhlLibre-Medium.ttf);
+}
+@font-face {
+    font-family: 'Vibes';
+    src: url(./fonts/GreatVibes-Regular.ttf);
+}
+
+html{
+    font-size: 62.5%;
+    /*we are using this way because it makes easier just use these whenever required and if eant to make changes just do here so automatically it will get chnaged everywhere*/
+    --header1: calc(2rem);
+    --header2: calc(3.5rem);
+    --header3: calc(3rem);
+    --header4: calc(2.4rem);
+    --text: calc(2rem);
+    --big-text: calc(6rem);
+    --special-color:#906272;
+    --background-color: #414141;
+    --gray-color: #525252;
+
+}
+
+h1{
+font-size:var(--header1);}
+
+p,li,button,label,input,a{
+font-size:var(--text);
+}
+
+h2{
+font-size: var(--header2);}
+h3{
+font-size: var(--header3);
+}
+h4,h5{
+font-size: var(--header4);
+}
+.flex{/*to get everything at centre so wheenever we call this as class in html that part will get at centre*/
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items:center ;
+}
+ul{
+    list-style: none;
+}
+a{
+     text-decoration:none ;/* no underline*/
+     color: black;
+}
+body{
+font-family: 'Ruhl' , sans-serif;/*sans-serif : You don't have control over them but they are good fallbacks if the font you want isn't on the users system*/
+animation: opacity 1s ease-in-out;
+}
+h1{
+    font-family: 'Vibes',sans-serif;
+}
+
+/*Nav section*/
+.main-head{
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    /*box-shadow gets removed after adding the background so follow theses 2 steps*/
+    z-index: 2;
+    position: relative;
+}
+nav{/*Rem if scrollbar ka issue arraha hai then check once ki zoom-in kiya hai kya!!*/
+      width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    padding:2rem 0rem;
+  /*  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1); not getting covered fully*/
+}
+#logo{
+    flex:1 1 20rem;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    flex:1 1 20rem;
+}
+
+/*hero section*/
+.hero{
+    min-height: 90vh;
+    display: flex
+
+}
+/*not working in the hero class*/
+#hero{
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+.hero-introduction{
+margin-left: 5%;
+flex: 2 1 40rem;/*by increasing the image gets squished but as we use object-fit:cover so image id not squishing*/
+text-align: center;/*REM IMP : WHENEVER WANT TO HAVE TEXT AT CETRE USE THIS ONLY!!!*/
+}
+.hero-introduction h2{
+    padding-top: 3rem;
+}
+.hero-introduction p{
+    padding: 5rem 10rem;/*5 on top and bottom and 10 on left amf right*/
+color: var(--gray-color);
+}
+.hero-introduction a{
+    padding: 2rem 8rem;
+    border: 3px solid black;
+    margin-bottom: 4rem; 
+}
+.hero-images{
+    /*THIS IS THE DIV NOT ONLY IMAGE PART*/
+    flex: 1 1 40rem; /*to get both divs side by side*/
+background: linear-gradient(#dad8dd,#dad8dd);/*after adding this the box shadow will get removed for some reason so to fix these 2 things we have to do 1)Z-INNDEX 2)POSITION:RELATIVE*/
+
+position: relative;
+z-index: 1;
+/*overflow: hidden; not here because we wanted that one leaf to go on the into part so we put thi on hero class so the 2nd leaft will not go outside the screen but 1st will go  on intro part*/
+}
+.elena-img{
+    /*REM WHY WE HAVE MADE THIS SEPERATELY BECAUSE WE HAVE TO MAKE CANGES IN TH IMAGE NOT THE DIV*/
+    width: 100%;
+    height: 100%;
+
+   object-fit: cover;
+  
+}
+.plant{
+    position: absolute;
+   animation: plant-push 1.5s ease-in-out 0.5s ,plant-shake 2.5s infinite ease alternate-reverse 2s ;/*IMP : basically these seconds are the time of to and from */
+   transform:  translateY(10%) , rotateZ(-10deg) rotateX(-90deg);
+   transform-origin: bottom;
+   bottom: 0;
+    left:-20%
+   
+}
+.plant1{
+    z-index: -1;
+}
+.plant2{
+    left: 40%;
+    z-index: -1;
+}
+
+/*Section 2*/
+.about{
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: wrap;
+  
+}
+.about-image{
+    flex: 1 1 40rem;
+    position: relative;/*IMP : BECAUSE WE WANT MINIMAL TO BE RELATIVE TO THIS DIV SO NOT ABOUT SECTION */
+}
+.about-info{
+    flex: 2 1 40rem;  
+    justify-content: space-around; 
+    background: var(--background-color);
+    color: white;
+    word-spacing: 0.5rem;
+}
+.about-i1{
+    /*means cover that div completely use these 3 */
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.about h5{
+    position: absolute;
+    color: white;
+    font-weight: 400;
+   font-weight: 1000;
+   font-size: xx-large;
+   height: 2rem;
+letter-spacing: 2rem;
+    top:20%;
+    left: 50%;
+    transform: translate(-50%,-20%);/*to have it at centre*/
+}
+.about-info div{
+    padding: 3rem 8rem;
+}
+.about-info h3{
+    font-family: 'Ruhl Medium',sans-serif;
+    padding: 2rem 0rem;
+}
+.about h2{
+    font-family: 'Vibes', sans-serif;
+    padding: 2rem;
+}
+
+/*GALLERY SECTION*/
+#gallery{
+    /*this section is made because this box was not appearing */
+    position: relative;
+}
+.gallery{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(3,1fr);
+
+}
+/*REM VERY IMP FOR ANY IMAGE USE THESE 3 STEPS TO MAKE PIC PERFECT*/
+.gallery img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery1{
+    grid-column: 1/3;
+}
+.gallery2{
+    grid-column: 3/4;
+    grid-row: 1/3;
+}
+.gallery-head{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--background-color);
+    color: white;
+    padding: 5rem 10rem;
+    text-align: center;
+    opacity: 0.7;
+  
+}
+
+
+/*Contact Page*/
+.contact{
+    display: flex;
+    min-height: 50vh;
+    flex-wrap: wrap;
+}
+.form{
+    flex: 3 1 40rem;
+}
+.contact-img{
+    flex: 1 1 40rem;
+   object-fit: cover;
+
+}
+.contact h2{
+    color: var(--background-color);
+
+margin-bottom: 5rem;
+}
+.contact span{
+    color: var(--special-color);
+font-size: var(--big-text);
+}
+.contact label{
+    display: block;
+font-size: 2rem;
+}
+.contact input{
+    display: block;
+    background: var(--background-color);
+    color: white;
+border: none;
+padding: 1rem;
+margin: 3rem 0rem;
+}
+.contact button{
+    background: var(--special-color);
+  padding: 1rem 8rem;
+    border: none;
+    width: 100%;
+margin-bottom: 2rem;
+}
+
+/*Footer*/
+footer{
+    background:var(--background-color);/*REM NOT IN DIV FOOT BECAUSE WE ARE GIVING THAT 10% MARGIN SO IT WILL REMAIN WHITE*/
+color: white;
+flex-wrap: wrap;
+}
+.foot{
+   display: flex;
+    min-height: 10vh;
+    width: 90%;
+    margin: auto;
+align-items: center;
+flex-wrap: wrap;
+}
+.foot ul{
+list-style: none;
+display: flex;
+flex: 1 1 40rem;/*itne mai nhi hoga h5 ko bhi dena padega*/
+justify-content: space-between;
+}
+.foot h5{
+    flex: 1 1 40rem;  
+}
+/*ANIMATIONS*/
+@keyframes opacity {
+   from{
+opacity: 0; /*from nothing on the screen */
+   }
+   to{
+opacity: 1;/*whole screen vissible*/
+   }
+}
+
+@keyframes plant-push{
+    from{
+transform: translateY(10%) , rotateZ(-10deg) rotateX(-90deg);/*IMP MEANS IT WILL GO FROM 10 DOWN */
+    }
+    to{
+transform: translateY(0%) rotateZ(0deg) rotateX(0deg);/*MEANS PLANTS WILL GO TO THIER ACTUAL POSITION FROM 10 DOWN TO REAL LOCATION*/
+    }
+} 
+@keyframes plant-shake{
+    from{
+        transform: rotateZ(-5deg);
+    }
+    to{
+        transform: rotateZ(0deg);
+    }
+}
+
+/*MEDIA QUERY*/
+@media screen and (max-width:842px) {
+    .hero-introduction{
+        padding: 5rem 3rem;
+    }
+.hero{
+    max-width: 100%;/*so in ph screen the margin does not appear and the image part takes complete screen*/
+}
+.plant{
+    max-height: 80%;/*plants were growing their height as the screen was going small*/
+}
+
+/*About section*/
+.about{
+    padding: 2rem;/*check which part does not look good in different screens and then likewise make changes here*/
+}
+
+/*Gallery Section*/
+.gallery img{
+grid-column:auto;
+grid-row:auto;
+}
+.gallery{
+    /*REM THIS PART IS VERY IMP BECAUSE WE CAN USE THIS IF WE JUST WANT TO FIT THE 
+    IMAGES AUTO SO BASICALLY COMPUTER WILL DO IT FOR US ..BUT HERE WE ARE USING JUST IN CASE OF MOBILE QUERY 
+    SO AUTO-FIT MEANS AS WE RESIZE THE SCREEN THIS WILL GET APPLIED AS OUR LIMIT GETS REACHED
+    SO MIN MEANS THE WIDTH OF THAT IMAGE CAN BE MIN 30REM AND MAX 1FR SO IN THE NORMAL
+    METHOD WE GAVE SPECIFIC NUMBER OF COLUMNS BUT HERE COMPUTER WILL DO AS ASSINGED MINMAX*/
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+}
+.gallery-head{
+display: none;/*not appear on the screen*/
+}
+.contact-img{
+    display: none;
+}
+.foot h5{
+    text-align: center;
+    padding: 2rem 0rem;
+}
+
+/*IMP MAKE CHANGES HERE BY MAKING SIZE SMALL OF SITE AND THE PART WHICH NOT SEEMS GOOD CHANGE IT HERE NOT IN MAIN PART */
+.form h2{
+    padding-top: 8rem;
+}
+.contact form{
+    padding-bottom: 4rem;
+}
+
+/*OREDRING PART TP CHANGE ORDER I.E UP AND DOWN*/
+/*MAKE A NOTE IN THAT PART H5 CAME BEFORE UL SO IT'S ORDER WAS 1 AND THAT OF UL 2 BUT THEY MUST BE IN SAME BOX*/
+.foot h5{
+    order: 2;
+}
+.foot ul{
+    order: 1;
+}
+}
